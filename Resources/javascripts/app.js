@@ -69,6 +69,20 @@ var clearBadge = function() {
 }
 
 var setNewTimer = function( minutes ){
+	// set correct highlight
+	setTimeout(function(){
+		for (var i=0; i < numIntervals; i++) {
+			console.log('minutes = '+minutes);
+			var label = intervalMenu.getItemAt(i).getLabel();
+			if( parseInt( label.split(' ')[0] ) == minutes ) {
+				intervalMenu.getItemAt(i).setState( true );
+			} else {
+				intervalMenu.getItemAt(i).setState( false );
+			}
+		};
+	},10);
+	
+	// clear & kick off new timer
 	_stretchInterval = _minute * minutes;
 	if( _timerInterval ) clearInterval( _timerInterval );
 	_timerInterval = setInterval(function(){
