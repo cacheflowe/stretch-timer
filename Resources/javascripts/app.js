@@ -133,13 +133,15 @@ var mainMenu = Titanium.UI.createMenu();
 mainMenu.addItem("Interval");
 
 var intervalMenu = Titanium.UI.createMenu();
+var numIntervals = 0;
 for( var i=5; i < 40; i+=5 ){
 	(function(){
 		var minutes = i;
-		intervalMenu.addItem(minutes+' minutes', function(){
+		intervalMenu.appendItem( Titanium.UI.createCheckMenuItem(minutes+' minutes', function(){
 			setNewTimer( minutes );
-		});
+		}) );
 	})();
+	numIntervals++;
 }
 mainMenu.getItemAt(0).setSubmenu(intervalMenu);
 
@@ -162,7 +164,7 @@ Titanium.UI.setMenu(mainMenu);
 // Retrieve settings
 // ------------------------------------------------------------------------
 if( localStorage.getItem('interval') == null ) {
-	localStorage.setItem('interval', 5); 
+	localStorage.setItem('interval', 15); 
 } else {
 	
 }
