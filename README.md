@@ -1,7 +1,10 @@
+Stretch Timer
+---
+A little app that reminds you to get up and stretch, since your desk job is slowly killing you. 
+
+This was a little experiment to get familiar with the Titanium Desktop SDK.
+
 Todo:
 ---
-* Constants for timer & audio settings
-* Init timer & audio settings with last stored preference
-* Show selected "Interval" menu button
-* clean up app and turn into a class
+* replace completely unauthorized, stolen stretch images
 
