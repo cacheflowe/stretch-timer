@@ -1,0 +1,32 @@
+<ti:app xmlns:ti="http://ti.appcelerator.org">
+    <sdk-version>1.1.0</sdk-version>
+    <guid>bebefe61-3b89-4246-996b-3b7129bb9f17</guid>
+    
+    <id>com.modeset.stretchtimer</id>
+    <name>Stretch Timer</name>
+    <version>1.0</version>
+    <publisher>cacheflowe</publisher>
+    <url>http://modeset.com</url>
+    <description>not specified</description>
+    <icon>default_app_logo.png</icon>
+    <copyright>2011 by cacheflowe</copyright>
+    
+    <window>
+        <id>initial</id>
+        <title>DeskTest</title>
+        <url>app://index.html</url>
+        <width>400</width>
+        <max-width>3000</max-width>
+        <min-width>0</min-width>
+        <height>400</height>
+        <max-height>3000</max-height>
+        <min-height>0</min-height>
+        <fullscreen>false</fullscreen>
+        <resizable>false</resizable>
+        <chrome scrollbars="false">true</chrome>
+        <maximizable>false</maximizable>
+        <minimizable>true</minimizable>
+        <closeable>true</closeable>
+        <transparency>0.9</transparency>
+    </window>
+</ti:app>

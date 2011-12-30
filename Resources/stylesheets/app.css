@@ -1,0 +1,9 @@
+body {
+	background-color: #fff;
+	margin: 0;
+}
+
+div#outer {
+	border-top: 1px solid #404040;
+	padding: 50px 50px 49px;
+}
