@@ -61,7 +61,7 @@ recurseDisableImages( document.getElementById("outer") );
 var _timerInterval = null;
 var _numStretchesIgnored = 0;
 var _pingSound = Titanium.Media.createSound('app://sounds/ping.wav');
-var _soundOn = false;
+var _soundOn = localStorage.getItem('sound_enabled') || false;
 
 var clearBadge = function() {
 	_numStretchesIgnored = 0;
@@ -122,7 +122,7 @@ var intervalMenu = Titanium.UI.createMenu();
 for( var i=5; i < 40; i+=5 ){
 	(function(){
 		var minutes = i;
-		intervalMenu.addItem(""+minutes, function(){
+		intervalMenu.addItem(minutes+' minutes', function(){
 			setNewTimer( minutes );
 		});
 	})();
@@ -136,13 +136,22 @@ var audioMenu = Titanium.UI.createMenu();
 mainMenu.getItemAt(1).setSubmenu( audioMenu );
 var checkItem = Titanium.UI.createCheckMenuItem("On", function() {
 	_soundOn = !checkItem.getState();
+	localStorage.setItem('sound_enabled', _soundOn);
 });
-checkItem.getState(_soundOn);
+// checkItem.setState(_soundOn);
 audioMenu.appendItem(checkItem);
 
 // Add main menu items 
 Titanium.UI.setMenu(mainMenu);
 
+
+// Retrieve settings
+// ------------------------------------------------------------------------
+if( localStorage.getItem('interval') == null ) {
+	localStorage.setItem('interval', 5); 
+} else {
+	
+}
 
 
 // Kick off initial timer
