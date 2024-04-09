@@ -1,14 +1,27 @@
+<!DOCTYPE html>
 <html>
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-		<title>Stretch Timer</title>
-        <link rel="stylesheet" href="stylesheets/app.css" type="text/css" media="screen"/>
-	</head>
-	<body>
-		<div id="outer">
-			<img id="stretch_img" src="images/stretch/finger_stretch.png"/>
-		</div>
-        <script src="javascripts/lib/jquery-1.7.1.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="javascripts/app.js" type="text/javascript" charset="utf-8"></script>
-	</body>
+  <head>
+    <meta charset="UTF-8">
+    <title>NeutralinoJs sample app</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <div id="neutralinoapp">
+      <h1>NeutralinoJs</h1>
+      <div id="info"></div>
+      <br/>
+      <img src="./icons/logo.gif" alt="Neutralinojs" />
+      <div>
+        <a href="#" onclick="openDocs();">Docs</a> &middot;  
+        <a href="#" onclick="openTutorial();">Video tutorial</a>
+      </div>
+    </div>
+    <!-- Neutralino.js client. This file is gitignored, 
+        because `neu update` typically downloads it.
+        Avoid copy-pasting it. 
+        -->
+    <script src="js/neutralino.js"></script>
+    <!-- Your app's source files -->
+    <script src="js/main.js"></script>
+  </body>
 </html>

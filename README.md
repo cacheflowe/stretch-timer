@@ -1,14 +1,15 @@
-Stretch Timer
----
-A little Mac OS X app that reminds you to get up and stretch. Your desk job is slowly killing you. 
+# neutralinojs-minimal
 
-This was an experiment to get familiar with the [Titanium Desktop SDK](http://www.appcelerator.com/products/titanium-desktop-application-development/).
+The default template for a Neutralinojs app. It's possible to use your favorite frontend framework by using [these steps](https://neutralino.js.org/docs/getting-started/using-frontend-libraries).
 
-[Download Stretch Timer](https://github.com/cacheflowe/StretchTimer/blob/master/deploy/StretchTimer.zip?raw=true)
+## Contributors
 
-Todo:
----
-* replace completely unauthorized, stolen stretch images
-* clean up menu creation method
-* add an additional break timer, for Pomodoro timing ability
-* add changelog and versioning
+[![Contributors](https://contrib.rocks/image?repo=neutralinojs/neutralinojs-minimal)](https://github.com/neutralinojs/neutralinojs-minimal/graphs/contributors)
+
+## License
+
+[MIT](LICENSE)
+
+## Icon credits
+
+- `trayIcon.png` - Made by [Freepik](https://www.freepik.com) and downloaded from [Flaticon](https://www.flaticon.com)
