@@ -24,7 +24,7 @@
   },
   "modes": {
     "window": {
-      "title": "stretch-timer",
+      "title": "Stretch Timer",
       "width": 800,
       "height": 500,
       "minWidth": 400,
@@ -34,7 +34,7 @@
       "alwaysOnTop": false,
       "icon": "/resources/icons/appIcon.png",
       "enableInspector": true,
-      "borderless": true,
+      "borderless": false,
       "maximize": false,
       "hidden": false,
       "resizable": true,

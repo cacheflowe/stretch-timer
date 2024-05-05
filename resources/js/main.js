@@ -11,23 +11,38 @@ function showInfo() {
         `;
 }
 
-function startShowing() {
-  Neutralino.window.setDraggableRegion("neutralinoapp");
-  console.log("Stretch time!");
+function initWindow() {
+  Neutralino.window.setSize({
+    width: 500,
+    height: 500,
+  });
+  // maxWidth: 600,
+  // maxHeight: 400,
+}
+
+async function startShowing() {
   setInterval(() => {
+    console.log("Stretch time!");
     Neutralino.window.show();
     Neutralino.window.focus();
-    Neutralino.window.setSize({
-      width: 500,
-      height: 200,
-      maxWidth: 600,
-      maxHeight: 400,
-    });
-  }, 3000);
-  document.addEventListener("click", function (event) {
-    // Neutralino.window.minimize();
-    Neutralino.window.hide();
+  }, 15000);
+
+  // show a notification. currently broken in windows' neutralino
+  document.addEventListener("click", async function (event) {
+    console.log("CLICKED");
+    Neutralino.os.showNotification(
+      "Hello world",
+      "It works! Have a nice day",
+      "INFO"
+    );
   });
+
+  // show an alert()
+  // await Neutralino.os.showMessageBox("Hello", "Welcome");
+  // window operations
+  // Neutralino.window.minimize();
+  // Neutralino.window.hide();
+  // Neutralino.window.setDraggableRegion("neutralinoapp");
 }
 
 function openDocs() {
@@ -73,7 +88,6 @@ function onWindowClose() {
 }
 
 Neutralino.init();
-
 Neutralino.events.on("trayMenuItemClicked", onTrayMenuItemClicked);
 Neutralino.events.on("windowClose", onWindowClose);
 
@@ -83,4 +97,5 @@ if (NL_OS != "Darwin") {
 }
 
 showInfo();
+initWindow();
 startShowing();
