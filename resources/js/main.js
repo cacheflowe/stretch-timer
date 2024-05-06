@@ -1,23 +1,16 @@
+import "./stretch-timer-app.js";
+
 // This is just a sample app. You can structure your Neutralinojs app code as you wish.
 // This example app is written with vanilla JavaScript and HTML.
 // Feel free to use any frontend framework you like :)
 // See more details: https://neutralino.js.org/docs/how-to/use-a-frontend-library
 
 function showInfo() {
-  document.getElementById("info").innerHTML = `
+  document.body.innerHTML += `
         ${NL_APPID} is running on port ${NL_PORT}  inside ${NL_OS}
         <br/><br/>
         <span>server: v${NL_VERSION} . client: v${NL_CVERSION}</span>
         `;
-}
-
-function initWindow() {
-  Neutralino.window.setSize({
-    width: 500,
-    height: 500,
-  });
-  // maxWidth: 600,
-  // maxHeight: 400,
 }
 
 async function startShowing() {
@@ -43,14 +36,6 @@ async function startShowing() {
   // Neutralino.window.minimize();
   // Neutralino.window.hide();
   // Neutralino.window.setDraggableRegion("neutralinoapp");
-}
-
-function openDocs() {
-  Neutralino.os.open("https://neutralino.js.org/docs");
-}
-
-function openTutorial() {
-  Neutralino.os.open("https://www.youtube.com/c/CodeZri");
 }
 
 function setTray() {
@@ -96,6 +81,4 @@ if (NL_OS != "Darwin") {
   setTray();
 }
 
-showInfo();
-initWindow();
-startShowing();
+// showInfo();

@@ -15,6 +15,19 @@ To run:
 neu run
 ```
 
+To build /dist files:
+
+```bat
+neu build
+neu build --release
+```
+
+If ./bin doesn't exist, create a new app and copy the contents:
+
+```bat
+neu create stretch-timer
+```
+
 
 ### Todo:
 
