@@ -24,9 +24,7 @@ class StretchTimerApp extends HTMLElement {
         color: #fff;
       }
       stretch-timer-app {
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        width: 100vh;
         height: 100vh;
       }
       h1 {
@@ -64,9 +62,9 @@ class StretchTimerApp extends HTMLElement {
   initWindow() {
     Neutralino.window.setSize({
       width: 600,
-      height: 400,
-      maxWidth: 800,
-      maxHeight: 500,
+      height: 600,
+      maxWidth: 600,
+      maxHeight: 600,
     });
   }
 
@@ -78,6 +76,14 @@ class StretchTimerApp extends HTMLElement {
 
   initStretches() {
     this.stretches = [
+      "./images/stretches/side-plank-rotation.gif",
+      "./images/stretches/knee-to-elbow.gif",
+      "./images/stretches/axe-rotation-dumbell.gif",
+      "./images/stretches/front-raises.gif",
+      "./images/stretches/squats-dumbell.gif",
+      "./images/stretches/shoulder-press.gif",
+      "./images/stretches/front-hammer-press.gif",
+      "./images/stretches/triceps-pushup.gif",
       "./images/stretches/arm_circles.png",
       "./images/stretches/arm_stretch.png",
       "./images/stretches/back_stretch.png",
@@ -89,7 +95,29 @@ class StretchTimerApp extends HTMLElement {
       "./images/stretches/shoulder_stretch.png",
       "./images/stretches/wholearm_stretch.png",
       "./images/stretches/wrist_warmup.png",
+      "./images/stretches/jumping-jacks.gif",
+      "./images/stretches/half-burpee.gif",
+      "./images/stretches/chair-air-squat.gif",
+      "./images/stretches/side-plank-dips.gif",
+      "./images/stretches/deadlift-calf-raises.gif",
+      "./images/stretches/sumo-deadlift-high-pull.gif",
+      "./images/stretches/weighted-lunge.gif",
+      "./images/stretches/push-press.gif",
+      "./images/stretches/delt-raise.gif",
+      "./images/stretches/lateral-raise.gif",
+      "./images/stretches/bicep-curl.gif",
+      "./images/stretches/ground-to-overhead.gif",
+      "./images/stretches/scissors.gif",
+      "./images/stretches/pulse-up.gif",
+      "./images/stretches/russian-twist.gif",
+      "./images/stretches/cat-cow.gif",
+      "./images/stretches/dumbell-row.gif",
+      "./images/stretches/plank-jacks.gif",
+      "./images/stretches/calf-raises.gif",
+      "./images/stretches/close-squats.gif",
+      "./images/stretches/sump-squats.gif",
     ];
+    this.stretches.sort(() => 0.5 - Math.random());
     this.stretchIndex = 0;
   }
 
@@ -113,15 +141,18 @@ class StretchTimerApp extends HTMLElement {
   }
 
   async startShowing() {
+    let showInterval = 1000 * 60 * 5;
+    let hideTime = 1000 * 15;
     setInterval(async () => {
       this.showNextStretch();
       await Neutralino.window.show();
       await Neutralino.window.focus();
-      // await Neutralino.window.setAlwaysOnTop(true); // or setAlwaysOnTop();
-      // setTimeout(async () => {
-      //   Neutralino.window.setAlwaysOnTop(false);
-      // }, 1000);
-    }, 15000);
+      await Neutralino.window.setAlwaysOnTop(true); // or setAlwaysOnTop();
+      setTimeout(async () => {
+        Neutralino.window.setAlwaysOnTop(false);
+        await Neutralino.window.hide();
+      }, hideTime);
+    }, showInterval);
   }
 }
 
