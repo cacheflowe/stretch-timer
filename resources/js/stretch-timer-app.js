@@ -61,10 +61,12 @@ class StretchTimerApp extends HTMLElement {
 
   initWindow() {
     Neutralino.window.setSize({
-      width: 600,
-      height: 600,
-      maxWidth: 600,
-      maxHeight: 600,
+      width: 400,
+      height: 400,
+      maxWidth: 400,
+      maxHeight: 400,
+      minWidth: 400,
+      minHeight: 400,
     });
   }
 
