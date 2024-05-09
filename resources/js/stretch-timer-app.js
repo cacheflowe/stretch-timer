@@ -5,7 +5,6 @@ class StretchTimerApp extends HTMLElement {
     this.initWindow();
     this.initStretches();
     setTimeout(() => {
-      this.showNextStretch();
       this.startShowing();
     }, 100);
   }
@@ -142,18 +141,32 @@ class StretchTimerApp extends HTMLElement {
     // Neutralino.os.showNotification("Stretch time!", "Yoooo", "INFO");
   }
 
+  async showWindow() {
+    this.showNextStretch();
+    await Neutralino.window.show();
+    await Neutralino.window.focus();
+    await Neutralino.window.maximize();
+    await Neutralino.window.setAlwaysOnTop(true); // or setAlwaysOnTop();
+
+    // delayed hide
+    clearTimeout(this.hideTimeout);
+    let hideTime = 1000 * 15; // 15 seconds
+    this.hideTimeout = setTimeout(async () => {
+      await this.hideWindow();
+    }, hideTime);
+  }
+
+  async hideWindow() {
+    console.log("hide!");
+    Neutralino.window.setAlwaysOnTop(false);
+    await Neutralino.window.hide();
+  }
+
   async startShowing() {
-    let showInterval = 1000 * 60 * 5;
-    let hideTime = 1000 * 15;
+    this.showWindow();
+    let showInterval = 1000 * 60 * 15; // 15 minutes
     setInterval(async () => {
-      this.showNextStretch();
-      await Neutralino.window.show();
-      await Neutralino.window.focus();
-      await Neutralino.window.setAlwaysOnTop(true); // or setAlwaysOnTop();
-      setTimeout(async () => {
-        Neutralino.window.setAlwaysOnTop(false);
-        await Neutralino.window.hide();
-      }, hideTime);
+      this.showWindow();
     }, showInterval);
   }
 }

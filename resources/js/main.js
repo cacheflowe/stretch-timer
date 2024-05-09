@@ -13,30 +13,15 @@ function showInfo() {
         `;
 }
 
-async function startShowing() {
-  setInterval(() => {
-    console.log("Stretch time!");
-    Neutralino.window.show();
-    Neutralino.window.focus();
-  }, 15000);
-
-  // show a notification. currently broken in windows' neutralino
-  document.addEventListener("click", async function (event) {
-    console.log("CLICKED");
-    Neutralino.os.showNotification(
-      "Hello world",
-      "It works! Have a nice day",
-      "INFO"
-    );
-  });
-
-  // show an alert()
-  // await Neutralino.os.showMessageBox("Hello", "Welcome");
-  // window operations
-  // Neutralino.window.minimize();
-  // Neutralino.window.hide();
-  // Neutralino.window.setDraggableRegion("neutralinoapp");
-}
+// // show a notification. currently broken in windows' neutralino
+// document.addEventListener("click", async function (event) {
+//   console.log("CLICKED");
+//   Neutralino.os.showNotification(
+//     "Hello world",
+//     "It works! Have a nice day",
+//     "INFO"
+//   );
+// });
 
 function setTray() {
   if (NL_MODE != "window") {
@@ -46,7 +31,7 @@ function setTray() {
   let tray = {
     icon: "/resources/icons/trayIcon.png",
     menuItems: [
-      { id: "VERSION", text: "Get version" },
+      { id: "SHOW", text: "Show App" },
       { id: "SEP", text: "-" },
       { id: "QUIT", text: "Quit" },
     ],
@@ -56,17 +41,16 @@ function setTray() {
 
 function onTrayMenuItemClicked(event) {
   switch (event.detail.id) {
-    case "VERSION":
-      Neutralino.os.showMessageBox(
-        "Version information",
-        `Neutralinojs server: v${NL_VERSION} | Neutralinojs client: v${NL_CVERSION}`
-      );
+    case "SHOW":
+      app.showWindow();
       break;
     case "QUIT":
       Neutralino.app.exit();
       break;
   }
 }
+
+window.app = document.querySelector("stretch-timer-app");
 
 function onWindowClose() {
   Neutralino.app.exit();
